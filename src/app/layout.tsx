@@ -2,6 +2,7 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
+import { Suspense } from "react"
 import { VisitTracker } from "@/components/visit-tracker"
 import "./globals.css"
 
@@ -24,7 +25,9 @@ export default function RootLayout({
                 className={`${inter.className} bg-lifely-cream text-lifely-dark antialiased`}
             >
                 {children}
-                <VisitTracker />
+                <Suspense fallback={null}>
+                    <VisitTracker />
+                </Suspense>
                 <Analytics />
             </body>
         </html>

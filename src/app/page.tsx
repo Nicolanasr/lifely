@@ -21,7 +21,6 @@ import {
     AlertTriangle,
     Leaf,
 } from "lucide-react"
-import Image from "next/image"
 
 const features = [
     {
@@ -165,16 +164,17 @@ export default function HomePage() {
                         </h1>
 
                         <p className="text-balance text-sm text-slate-700 sm:text-base">
-                            Lifely is a calm mobile app that combines tasks, habits, journaling, mood,
-                            and weekly review into a single daily dashboard. No more jumping between
-                            five apps.
+                            Lifely is a calm mobile app for people tired of juggling 5 different tools.
+                            One dashboard for tasks, habits, journaling, mood, and weekly review.
                         </p>
 
                         <div className="flex items-center gap-3 text-xs text-slate-500">
                             <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm ring-1 ring-black/5">
                                 Early access for a small group of users.
                             </span>
-                            <span className="hidden sm:inline text-slate-500">No spam. No selling your data.</span>
+                            <span className="inline-flex items-center gap-2 rounded-full bg-lifely-indigo/10 px-3 py-1 text-[11px] font-semibold text-lifely-indigo shadow-sm ring-1 ring-lifely-indigo/30">
+                                Beta testers wanted · first 200
+                            </span>
                         </div>
 
                         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
@@ -256,6 +256,9 @@ export default function HomePage() {
                                 </li>
                             ))}
                         </ul>
+                        <p className="text-xs font-semibold text-lifely-indigo">
+                            Outcome: more clarity, less switching, calmer days.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -273,6 +276,7 @@ export default function HomePage() {
                         "Simple enough to use every day",
                         "One unified daily view — no jumping between screens",
                         "Minimal, calm aesthetic (no busy dashboards)",
+                        "Unlike Notion templates, it’s ready out of the box",
                     ].map((point) => (
                         <div
                             key={point}
@@ -296,13 +300,39 @@ export default function HomePage() {
                     description="View the latest Figma preview of the mobile app screens."
                 />
 
-                <a
-                    href="https://www.figma.com/design/AlorRxz1f9DuR0xHJjlq3L/Lifely?t=o38nnNd1nnU17Aj5-1"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-2xl bg-white/80 p-4 text-center shadow-sm ring-1 ring-black/5 sm:flex-row sm:justify-between sm:text-left">
-                    <Image src="/image.png" alt="figma" height={1080} width={1920} objectFit="cover" />
-                </a>
+                <div className="rounded-2xl bg-white/85 p-5 shadow-sm ring-1 ring-black/5">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p className="text-sm font-semibold text-lifely-dark">Mobile + dashboard preview</p>
+                            <p className="text-xs text-slate-600">Static mock slots—swap with real screenshots when ready.</p>
+                        </div>
+                        <a
+                            href="https://www.figma.com/design/AlorRxz1f9DuR0xHJjlq3L/Lifely?t=o38nnNd1nnU17Aj5-1"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center rounded-full bg-lifely-indigo px-4 py-2 text-sm font-semibold text-primary shadow-sm transition hover:bg-lifely-indigo/90"
+                        >
+                            Open Figma preview
+                        </a>
+                    </div>
+                    <div className="mt-4 grid gap-3 md:grid-cols-3">
+                        {[{ task: "tasks", image: "/taskview.png" }, { task: "habits", image: "/habitview].png" }, { task: "journal", image: "/journalview.png" }].map((label) => (
+                            <div
+                                key={label.task}
+                                className="h-92 rounded-xl bg-linear-to-br from-lifely-cream via-white to-lifely-peach/40 p-3 shadow-inner ring-1 ring-black/5"
+                            >
+                                <div className="flex h-full flex-col justify-between rounded-lg bg-white/80 p-3 text-xs text-slate-600 shadow-sm ring-1 ring-black/5 bg-center bg-contain bg-no-repeat" style={{ backgroundImage: `url('${label.image}')` }}>
+                                    <div className="space-y-1">
+                                        <div className="h-2 rounded-full bg-lifely-indigo/20" />
+                                        <div className="h-2 rounded-full bg-lifely-indigo/30" />
+                                        <div className="h-2 rounded-full bg-lifely-indigo/10" />
+                                    </div>
+                                    <div className="text-[10px] text-lifely-indigo">{label.task}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             <section id="features" className="mx-auto max-w-6xl space-y-10 px-4 pb-20">
@@ -509,6 +539,40 @@ export default function HomePage() {
 
             <section className="mx-auto max-w-6xl space-y-6 px-4 pb-16 sm:pb-20">
                 <SectionHeader
+                    eyebrow="Early feedback"
+                    title="What early readers say"
+                    description="Lightweight notes from people who want a calmer daily flow."
+                />
+                <div className="grid gap-4 md:grid-cols-3">
+                    {[
+                        {
+                            quote: "Finally, something simpler than my Notion setup.",
+                            name: "Early subscriber",
+                        },
+                        {
+                            quote: "I just want one place to check in. This feels it.",
+                            name: "Beta waitlist",
+                        },
+                        {
+                            quote: "Offline-first is huge. I can use it on the train.",
+                            name: "Mobile-first user",
+                        },
+                    ].map((item) => (
+                        <Card
+                            key={item.quote}
+                            className="rounded-2xl border-none bg-white/85 shadow-sm ring-1 ring-black/5"
+                        >
+                            <CardContent className="space-y-2 p-5">
+                                <p className="text-sm text-lifely-dark">“{item.quote}”</p>
+                                <p className="text-xs text-slate-600">{item.name}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </section>
+
+            <section className="mx-auto max-w-6xl space-y-6 px-4 pb-16 sm:pb-20">
+                <SectionHeader
                     eyebrow="Quick answers"
                     title="FAQ"
                     description="A few essentials while we build. More details coming with early access."
@@ -538,7 +602,6 @@ export default function HomePage() {
                 <div className="max-w-xl">
                     <WaitlistForm />
                 </div>
-                <p className="text-xs text-slate-500">No spam. No selling your data. Opt out anytime.</p>
             </section>
 
             <footer className="border-t border-slate-200 bg-white/70">

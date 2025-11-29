@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { usePathname, useSearchParams } from "next/navigation"
 
 type UtmPayload = {
   source?: string
@@ -11,14 +12,24 @@ type UtmPayload = {
 }
 
 export function VisitTracker() {
-  const hasSent = useRef(false)
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const lastPath = useRef<string | null>(null)
 
   useEffect(() => {
-    if (hasSent.current) return
     if (typeof window === "undefined") return
-    hasSent.current = true
 
-    const search = new URLSearchParams(window.location.search)
+    const searchString = searchParams?.toString() ?? ""
+    const pagePath = `${pathname}${searchString ? `?${searchString}` : ""}`
+
+    if (lastPath.current === pagePath) return
+    lastPath.current = pagePath
+
+    if (process.env.NODE_ENV !== "production") {
+      return
+    }
+
+    const search = new URLSearchParams(searchString)
     const utm: UtmPayload = {
       source: search.get("utm_source") || undefined,
       medium: search.get("utm_medium") || undefined,
@@ -28,14 +39,10 @@ export function VisitTracker() {
     }
 
     const payload = {
-      page: `${window.location.pathname}${window.location.search}`,
+      page: pagePath,
       referrer: document.referrer || undefined,
       userAgent: navigator.userAgent || undefined,
       utm,
-    }
-
-    if (process.env.NODE_ENV !== "production") {
-      return
     }
 
     void fetch("/api/visit", {
@@ -45,7 +52,7 @@ export function VisitTracker() {
     }).catch((error) => {
       console.error("[visit] failed to send", error)
     })
-  }, [])
+  }, [pathname, searchParams])
 
   return null
 }

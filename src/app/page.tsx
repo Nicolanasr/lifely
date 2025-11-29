@@ -21,6 +21,7 @@ import {
     AlertTriangle,
     Leaf,
 } from "lucide-react"
+import Image from "next/image"
 
 const features = [
     {
@@ -254,12 +255,28 @@ export default function HomePage() {
                 </div>
             </section>
 
+            <section id="figma" className="mx-auto max-w-6xl space-y-10 px-4 pb-20">
+                <SectionHeader
+                    title="Peek at the Lifely design"
+                    description="View the latest Figma preview of the mobile app screens."
+                />
+
+                <a
+                    href="https://www.figma.com/design/AlorRxz1f9DuR0xHJjlq3L/Lifely?t=o38nnNd1nnU17Aj5-1"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-2xl bg-white/80 p-4 text-center shadow-sm ring-1 ring-black/5 sm:flex-row sm:justify-between sm:text-left">
+                    <Image src="/image.png" alt="figma" height={1080} width={1920} objectFit="cover" />
+                </a>
+            </section>
+
             <section id="features" className="mx-auto max-w-6xl space-y-10 px-4 pb-20">
                 <SectionHeader
                     eyebrow="Features"
                     title="Everything your life needs, in one flow."
                     description="Daily dashboard, habits that stick, soft journaling, and weekly reflection—so you stay calm and clear."
                 />
+
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature) => (

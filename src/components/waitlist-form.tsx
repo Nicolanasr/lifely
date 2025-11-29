@@ -137,7 +137,7 @@ export function WaitlistForm({ className, variant = "primary", plan }: WaitlistF
         ) : (
           <>
             <Sparkles className="h-4 w-4" />
-            Become one of the first 200
+            Join early access
           </>
         )}
       </Button>

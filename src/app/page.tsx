@@ -159,23 +159,24 @@ export default function HomePage() {
                         </div>
 
                         <h1 className="text-balance text-4xl font-semibold tracking-tight text-lifely-dark sm:text-5xl">
-                            One gentle mobile home for{" "}
-                            <span className="text-lifely-primary">tasks, habits, and you.</span>
+                            One calm Life OS for people juggling{" "}
+                            <span className="text-lifely-primary">too many apps.</span>
                         </h1>
 
                         <p className="text-balance text-sm text-slate-700 sm:text-base">
-                            Lifely is a calm mobile app for people tired of juggling 5 different tools.
-                            One dashboard for tasks, habits, journaling, mood, and weekly review.
+                            For makers, students, and busy humans stuck between todo apps, habit trackers, notes, and calendars.
+                            Lifely gives you one gentle daily dashboard with tasks, habits, journaling, mood, and weekly review in one place.
                         </p>
 
-                        <div className="flex items-center gap-3 text-xs text-slate-500">
-                            <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm ring-1 ring-black/5">
-                                Early access for a small group of users.
-                            </span>
-                            <span className="inline-flex items-center gap-2 rounded-full bg-lifely-indigo/10 px-3 py-1 text-[11px] font-semibold text-lifely-indigo shadow-sm ring-1 ring-lifely-indigo/30">
-                                Beta testers wanted · first 200
-                            </span>
-                        </div>
+                    <div className="flex items-center gap-3 text-xs text-slate-500">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm ring-1 ring-black/5">
+                            Early access for a small group of users.
+                        </span>
+                        <span className="inline-flex items-center gap-2 rounded-full bg-lifely-indigo/10 px-3 py-1 text-[11px] font-semibold text-lifely-indigo shadow-sm ring-1 ring-lifely-indigo/30">
+                            Beta testers wanted · first 200
+                        </span>
+                        <span className="hidden sm:inline text-slate-500">No spam. One invite when ready.</span>
+                    </div>
 
                         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                             <HighlightPill icon={<Check className="h-4 w-4" />}>
@@ -342,6 +343,40 @@ export default function HomePage() {
                     description="Daily dashboard, habits that stick, soft journaling, and weekly reflection—so you stay calm and clear."
                 />
 
+                <div className="rounded-2xl bg-white/85 p-5 shadow-sm ring-1 ring-black/5">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p className="text-sm font-semibold text-lifely-dark">Peek at the Lifely design</p>
+                            <p className="text-xs text-slate-600">View the latest Figma preview of the mobile app screens.</p>
+                        </div>
+                        <a
+                            href="https://www.figma.com/design/AlorRxz1f9DuR0xHJjlq3L/Lifely?t=o38nnNd1nnU17Aj5-1"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center rounded-full bg-lifely-indigo px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-lifely-indigo/90"
+                        >
+                            Open Figma preview
+                        </a>
+                    </div>
+                    <div className="mt-4 grid gap-3 md:grid-cols-3">
+                        {["tasks", "habits", "journal"].map((label) => (
+                            <div
+                                key={label}
+                                className="aspect-[4/3] rounded-xl bg-gradient-to-br from-lifely-cream via-white to-lifely-peach/40 p-3 shadow-inner ring-1 ring-black/5"
+                            >
+                                <div className="flex h-full flex-col justify-between rounded-lg bg-white/80 p-3 text-xs text-slate-600 shadow-sm ring-1 ring-black/5">
+                                    <div className="font-semibold text-lifely-dark capitalize">{label}</div>
+                                    <div className="space-y-1">
+                                        <div className="h-2 rounded-full bg-lifely-indigo/20" />
+                                        <div className="h-2 rounded-full bg-lifely-indigo/30" />
+                                        <div className="h-2 rounded-full bg-lifely-indigo/10" />
+                                    </div>
+                                    <div className="text-[10px] text-lifely-indigo">Drop real screenshots here</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {features.map((feature) => (

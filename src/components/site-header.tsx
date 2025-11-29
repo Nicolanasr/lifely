@@ -30,9 +30,9 @@ export function SiteHeader({ navLinks }: SiteHeaderProps) {
                         {link.label}
                     </a>
                 ))}
-                <Link href="/checkout">
+                <Link href="/#early-access">
                     <Button className="rounded-full cursor-pointer bg-lifely-primary px-4 py-2 text-white hover:bg-lifely-primary/90">
-                        Get early access
+                        Join early access
                     </Button>
                 </Link>
             </div>

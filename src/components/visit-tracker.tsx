@@ -34,6 +34,10 @@ export function VisitTracker() {
       utm,
     }
 
+    if (process.env.NODE_ENV !== "production") {
+      return
+    }
+
     void fetch("/api/visit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

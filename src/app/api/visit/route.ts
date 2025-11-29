@@ -17,10 +17,22 @@ export async function POST(request: Request) {
       userAgent?: string
       utm?: UtmPayload
     }
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      null
+    const country =
+      request.headers.get("x-vercel-ip-country") ||
+      request.headers.get("x-geo-country") ||
+      null
+
+    if (process.env.NODE_ENV !== "production") {
+      return NextResponse.json({ ok: true, skipped: "dev-mode" })
+    }
 
     if (!supabaseAdmin) {
       console.warn("[visit] supabase not configured, log-only")
-      console.log("[visit] event", { page, referrer, userAgent, utm })
+      console.log("[visit] event", { page, referrer, userAgent, utm, ip, country })
       return NextResponse.json({ ok: true, logged: true })
     }
 
@@ -33,6 +45,8 @@ export async function POST(request: Request) {
       utm_campaign: utm?.campaign ?? null,
       utm_term: utm?.term ?? null,
       utm_content: utm?.content ?? null,
+      ip_address: ip,
+      country,
     })
 
     if (error) {

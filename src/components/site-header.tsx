@@ -30,10 +30,12 @@ export function SiteHeader({ navLinks }: SiteHeaderProps) {
                         {link.label}
                     </a>
                 ))}
-                <Button className="rounded-full bg-lifely-primary px-4 py-2 text-white hover:bg-lifely-primary/90">
-                    Get early access
-                </Button>
+                <Link href="/checkout">
+                    <Button className="rounded-full cursor-pointer bg-lifely-primary px-4 py-2 text-white hover:bg-lifely-primary/90">
+                        Get early access
+                    </Button>
+                </Link>
             </div>
-        </header>
+        </header >
     )
 }

@@ -1,7 +1,7 @@
 'use client'
 
-import { useMemo, useTransition } from "react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useState, useTransition } from "react"
+import { useRouter } from "next/navigation"
 
 import { SiteHeader, type NavLink } from "@/components/site-header"
 import { WaitlistForm } from "@/components/waitlist-form"
@@ -45,23 +45,23 @@ const navLinks: NavLink[] = [
 type PlanKey = keyof typeof planOptions
 
 export default function CheckoutPage() {
-    const searchParams = useSearchParams()
     const router = useRouter()
-    const pathname = usePathname()
     const [isPending, startTransition] = useTransition()
-
-    const selectedKey = useMemo<PlanKey>(() => {
-        const keyParam = searchParams.get("plan") as PlanKey | null
+    const [selectedKey, setSelectedKey] = useState<PlanKey>(() => {
+        if (typeof window === "undefined") return "beta"
+        const params = new URLSearchParams(window.location.search)
+        const keyParam = params.get("plan") as PlanKey | null
         return keyParam && planOptions[keyParam] ? keyParam : "beta"
-    }, [searchParams])
+    })
 
     const selectedPlan = planOptions[selectedKey]
 
     function selectPlan(key: PlanKey) {
         startTransition(() => {
-            const params = new URLSearchParams(searchParams.toString())
+            setSelectedKey(key)
+            const params = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "")
             params.set("plan", key)
-            router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+            router.replace(`${typeof window !== "undefined" ? window.location.pathname : "/checkout"}?${params.toString()}`, { scroll: false })
         })
     }
 

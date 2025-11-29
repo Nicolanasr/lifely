@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, type FormEvent } from "react"
+import { useEffect, useState, type FormEvent } from "react"
+import { track } from "@vercel/analytics/react"
 import { Check, Loader2, Sparkles } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -13,12 +14,40 @@ type WaitlistFormProps = {
   plan?: string
 }
 
+type UtmPayload = {
+  source?: string
+  medium?: string
+  campaign?: string
+  term?: string
+  content?: string
+  referrer?: string
+  page?: string
+}
+
 type Status = "idle" | "loading" | "success" | "error"
 
 export function WaitlistForm({ className, variant = "primary", plan }: WaitlistFormProps) {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<Status>("idle")
   const [message, setMessage] = useState<string | null>(null)
+  const [referrer, setReferrer] = useState<string | undefined>(undefined)
+  const [pagePath, setPagePath] = useState<string | undefined>(undefined)
+  const [utmParams, setUtmParams] = useState<UtmPayload>({})
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const search = new URLSearchParams(window.location.search)
+      setUtmParams({
+        source: search.get("utm_source") || undefined,
+        medium: search.get("utm_medium") || undefined,
+        campaign: search.get("utm_campaign") || undefined,
+        term: search.get("utm_term") || undefined,
+        content: search.get("utm_content") || undefined,
+      })
+      setPagePath(`${window.location.pathname}${window.location.search}`)
+      setReferrer(document.referrer || undefined)
+    }
+  }, [])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -31,10 +60,16 @@ export function WaitlistForm({ className, variant = "primary", plan }: WaitlistF
     setMessage(null)
 
     try {
+      const utmPayload: UtmPayload = {
+        ...utmParams,
+        referrer,
+        page: pagePath,
+      }
+
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, plan }),
+        body: JSON.stringify({ email, plan, utm: utmPayload }),
       })
 
       if (!response.ok) {
@@ -46,6 +81,14 @@ export function WaitlistForm({ className, variant = "primary", plan }: WaitlistF
         `You’re on the list${plan ? ` for ${plan}` : ""}! We’ll email you soon.`
       )
       setEmail("")
+
+      track("waitlist_submit", {
+        plan: plan ?? "Unknown",
+        source: utmPayload.source ?? "direct",
+        medium: utmPayload.medium ?? "none",
+        campaign: utmPayload.campaign ?? "none",
+        page: utmPayload.page ?? "unknown",
+      })
     } catch (error) {
       console.error(error)
       setStatus("error")

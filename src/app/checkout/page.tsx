@@ -72,7 +72,7 @@ export default function CheckoutPage() {
 
             <section className="mx-auto flex max-w-4xl flex-col gap-6 px-4 pb-16">
                 <div className="space-y-2">
-                    <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold text-lifely-indigo shadow-sm ring-1 ring-black/5">
+                    <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold text-lifely-primary shadow-sm ring-1 ring-black/5">
                         Interest checkout · No payment required
                     </p>
                     <h1 className="text-3xl font-semibold tracking-tight text-lifely-dark sm:text-4xl">
@@ -90,7 +90,7 @@ export default function CheckoutPage() {
                         <CardContent className="space-y-6 p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-lifely-indigo">
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-lifely-primary">
                                         {selectedPlan.name}
                                     </p>
                                     <p className="text-3xl font-semibold text-lifely-dark">
@@ -101,22 +101,22 @@ export default function CheckoutPage() {
                                     </p>
                                     <p className="text-sm text-slate-700">{selectedPlan.blurb}</p>
                                 </div>
-                                <div className="rounded-full bg-lifely-indigo/10 px-3 py-1 text-xs font-semibold text-lifely-indigo">
+                                <div className="rounded-full bg-lifely-primary/10 px-3 py-1 text-xs font-semibold text-lifely-primary">
                                     No card needed
                                 </div>
                             </div>
 
                             <div className="space-y-2 text-sm text-slate-700">
                                 <div className="flex items-center gap-2">
-                                    <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                    <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                     Tasks, habits, journaling, mood, weekly review
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                    <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                     Mobile-first design with calm notifications
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                    <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                     Founding member perks and early templates
                                 </div>
                             </div>
@@ -140,11 +140,10 @@ export default function CheckoutPage() {
                                         <Button
                                             key={planKey}
                                             variant="outline"
-                                            className={`w-full justify-between rounded-xl text-left transition ${
-                                                isActive
-                                                    ? "border-lifely-indigo bg-lifely-indigo/10 text-lifely-indigo ring-2 ring-lifely-indigo/50"
-                                                    : "border-lifely-indigo/20 bg-white text-slate-700 hover:bg-lifely-indigo/5"
-                                            }`}
+                                            className={`w-full justify-between rounded-xl text-left transition ${isActive
+                                                    ? "border-lifely-primary bg-lifely-primary/10 text-lifely-primary ring-2 ring-lifely-primary/50"
+                                                    : "border-lifely-primary/20 bg-white text-slate-700 hover:bg-lifely-primary/5"
+                                                }`}
                                             aria-pressed={isActive}
                                             onClick={() => selectPlan(planKey as PlanKey)}
                                             disabled={isPending}
@@ -164,7 +163,7 @@ export default function CheckoutPage() {
                                 })}
                             </div>
 
-                            <div className="rounded-xl bg-lifely-indigo/10 p-4 text-sm text-lifely-dark">
+                            <div className="rounded-xl bg-lifely-primary/10 p-4 text-sm text-lifely-dark">
                                 We&apos;ll email you a personal invite link for the plan you choose. No charges
                                 happen here—this is a temperature check.
                             </div>

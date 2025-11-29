@@ -15,7 +15,7 @@ export function LifelyLogo({ size = 40, withText = false }: LifelyLogoProps) {
             >
                 <svg
                     viewBox="0 0 48 48"
-                    className="text-lifely-indigo"
+                    className="text-lifely-primary"
                     aria-hidden="true"
                 >
                     <circle
@@ -46,7 +46,7 @@ export function LifelyLogo({ size = 40, withText = false }: LifelyLogoProps) {
                 </svg>
             </div>
             {withText && (
-                <span className="text-lg font-semibold tracking-tight text-lifely-indigo">
+                <span className="text-lg font-semibold tracking-tight text-lifely-primary">
                     Lifely
                 </span>
             )}

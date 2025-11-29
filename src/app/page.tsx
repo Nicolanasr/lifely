@@ -149,18 +149,18 @@ export default function HomePage() {
                 <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
                     <div className="max-w-xl space-y-6">
                         <div className="flex flex-wrap items-center gap-2">
-                            <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-lifely-indigo shadow-sm ring-1 ring-black/5">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-lifely-primary shadow-sm ring-1 ring-black/5">
                                 <span className="h-2 w-2 rounded-full bg-lifely-peach" />
                                 Mobile Life OS · Early access
                             </span>
-                            <span className="inline-flex items-center gap-2 rounded-full bg-lifely-indigo/10 px-3 py-1 text-[11px] font-semibold text-lifely-indigo ring-1 ring-lifely-indigo/30">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-lifely-primary/10 px-3 py-1 text-[11px] font-semibold text-lifely-primary ring-1 ring-lifely-primary/30">
                                 Built for iOS & Android
                             </span>
                         </div>
 
                         <h1 className="text-balance text-4xl font-semibold tracking-tight text-lifely-dark sm:text-5xl">
                             One gentle mobile home for{" "}
-                            <span className="text-lifely-indigo">tasks, habits, and you.</span>
+                            <span className="text-lifely-primary">tasks, habits, and you.</span>
                         </h1>
 
                         <p className="text-balance text-sm text-slate-700 sm:text-base">
@@ -199,7 +199,7 @@ export default function HomePage() {
                             aria-label="Mobile app preview"
                         >
                             <div
-                                className="aspect-[9/16] w-full rounded-3xl bg-lifely-indigo/5 shadow-inner ring-1 ring-black/5"
+                                className="aspect-[9/16] w-full rounded-3xl bg-lifely-primary/5 shadow-inner ring-1 ring-black/5"
                                 style={{
                                     backgroundImage: "url('/app-screenshot.png')",
                                     backgroundSize: "cover",
@@ -209,7 +209,7 @@ export default function HomePage() {
                         </div>
 
                         {/* <div className="absolute -left-4 -bottom-6 hidden rounded-2xl bg-white/90 p-4 shadow-lg ring-1 ring-black/5 sm:block lg:-left-12">
-                            <div className="flex items-center gap-2 text-xs font-semibold text-lifely-indigo">
+                            <div className="flex items-center gap-2 text-xs font-semibold text-lifely-primary">
                                 <Flame className="h-4 w-4" />
                                 Weekly reset ready
                             </div>
@@ -225,13 +225,13 @@ export default function HomePage() {
                 <div className="grid gap-6 rounded-3xl bg-white/80 p-6 shadow-sm ring-1 ring-black/5 md:grid-cols-2">
                     <div className="space-y-3">
                         <div className="flex items-center gap-2 text-sm font-semibold text-lifely-dark">
-                            <AlertTriangle className="h-4 w-4 text-lifely-indigo" />
+                            <AlertTriangle className="h-4 w-4 text-lifely-primary" />
                             The chaos today
                         </div>
                         <ul className="space-y-2 text-sm text-slate-700">
                             {problemBullets.map((item) => (
                                 <li key={item} className="flex items-start gap-2">
-                                    <span className="mt-1 h-2 w-2 rounded-full bg-lifely-indigo/50" />
+                                    <span className="mt-1 h-2 w-2 rounded-full bg-lifely-primary/50" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -239,7 +239,7 @@ export default function HomePage() {
                     </div>
                     <div className="space-y-3 rounded-2xl bg-lifely-cream/80 p-5 ring-1 ring-black/5">
                         <div className="flex items-center gap-2 text-sm font-semibold text-lifely-dark">
-                            <Leaf className="h-4 w-4 text-lifely-indigo" />
+                            <Leaf className="h-4 w-4 text-lifely-primary" />
                             What Lifely does instead
                         </div>
                         <ul className="space-y-2 text-sm text-slate-700">
@@ -287,7 +287,7 @@ export default function HomePage() {
                         >
                             <CardContent className="space-y-3 p-5">
                                 <div className="flex items-center gap-3">
-                                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lifely-indigo/10 text-sm font-semibold text-lifely-indigo">
+                                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lifely-primary/10 text-sm font-semibold text-lifely-primary">
                                         {index + 1}
                                     </span>
                                     <h3 className="text-base font-semibold text-lifely-dark">
@@ -295,7 +295,7 @@ export default function HomePage() {
                                     </h3>
                                 </div>
                                 <p className="text-sm text-slate-700">{step.description}</p>
-                                <p className="text-xs text-lifely-indigo">{step.detail}</p>
+                                <p className="text-xs text-lifely-primary">{step.detail}</p>
                             </CardContent>
                         </Card>
                     ))}
@@ -317,7 +317,7 @@ export default function HomePage() {
                         <CardContent className="space-y-6 p-6">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-xs font-semibold uppercase tracking-wide text-lifely-indigo">
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-lifely-primary">
                                         Beta · Lifely Pro
                                     </p>
                                     <p className="text-3xl font-semibold text-lifely-dark">
@@ -342,7 +342,7 @@ export default function HomePage() {
                                     "Founding member badge",
                                 ].map((item) => (
                                     <div key={item} className="flex items-center gap-2">
-                                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lifely-indigo/10 text-lifely-indigo">
+                                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lifely-primary/10 text-lifely-primary">
                                             <Check className="h-3.5 w-3.5" />
                                         </span>
                                         <span>{item}</span>
@@ -379,18 +379,18 @@ export default function HomePage() {
                                         <div>
                                             <div className="flex items-center gap-2">
                                                 <p className="text-sm font-semibold text-lifely-dark">{plan.name}</p>
-                                                <span className="rounded-full bg-lifely-indigo/10 px-2 py-1 text-[11px] font-semibold text-lifely-indigo">
+                                                <span className="rounded-full bg-lifely-primary/10 px-2 py-1 text-[11px] font-semibold text-lifely-primary">
                                                     {plan.badge}
                                                 </span>
                                             </div>
-                                            <p className="text-lg font-semibold text-lifely-indigo">
+                                            <p className="text-lg font-semibold text-lifely-primary">
                                                 {plan.price}
                                                 <span className="text-sm font-medium text-slate-500"> {plan.period}</span>
                                             </p>
                                         </div>
                                         <Button
                                             asChild
-                                            className="w-full rounded-full bg-lifely-indigo text-white hover:bg-lifely-indigo/90 sm:w-auto"
+                                            className="w-full rounded-full bg-lifely-primary text-white hover:bg-lifely-primary/90 sm:w-auto"
                                         >
                                             <Link href={plan.href} className="flex items-center gap-2">
                                                 Start checkout
@@ -403,20 +403,20 @@ export default function HomePage() {
 
                             <div className="rounded-xl bg-white/80 p-4 text-sm shadow-sm ring-1 ring-black/5">
                                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                    <Sparkles className="h-4 w-4 text-lifely-indigo" />
+                                    <Sparkles className="h-4 w-4 text-lifely-primary" />
                                     Sneak peek
                                 </div>
                                 <ul className="mt-3 space-y-2 text-slate-700">
                                     <li className="flex items-center gap-2">
-                                        <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                        <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                         Focused capture on mobile with quick add.
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                        <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                         Weekly audio notes that auto-transcribe into your journal.
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                        <span className="h-2 w-2 rounded-full bg-lifely-primary" />
                                         Smart templates for reflection and planning.
                                     </li>
                                 </ul>
@@ -480,7 +480,7 @@ type HighlightPillProps = {
 function HighlightPill({ icon, children }: HighlightPillProps) {
     return (
         <div className="flex items-start gap-3 items-center rounded-2xl bg-white/80 p-3 text-sm text-slate-700 shadow-sm ring-1 ring-black/5">
-            <span className="mt-0.5 flex h-8 w-10 items-center justify-center rounded-xl bg-lifely-indigo/10 text-lifely-indigo">
+            <span className="mt-0.5 flex h-8 w-10 items-center justify-center rounded-xl bg-lifely-primary/10 text-lifely-primary">
                 {icon}
             </span>
             <span>{children}</span>

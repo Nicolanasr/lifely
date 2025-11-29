@@ -129,18 +129,18 @@ export function WaitlistForm({ className, variant = "primary", plan }: WaitlistF
                         <Loader2 className="h-4 w-4 animate-spin" />
                         Joining...
                     </>
-                ) : isSuccess ? (
-                    <>
-                        <Check className="h-4 w-4" />
-                        Added
-                    </>
-                ) : (
-                    <>
-                        <Sparkles className="h-4 w-4" />
-                        Join waitlist
-                    </>
-                )}
-            </Button>
+        ) : isSuccess ? (
+          <>
+            <Check className="h-4 w-4" />
+            Added
+          </>
+        ) : (
+          <>
+            <Sparkles className="h-4 w-4" />
+            Become one of the first 200
+          </>
+        )}
+      </Button>
 
             {message && (
                 <p

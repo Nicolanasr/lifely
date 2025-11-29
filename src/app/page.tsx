@@ -223,16 +223,21 @@ export default function HomePage() {
             </section>
 
             <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
-                <div className="grid gap-6 rounded-3xl bg-white/80 p-6 shadow-sm ring-1 ring-black/5 md:grid-cols-2">
+                <SectionHeader
+                    eyebrow="Why Lifely exists"
+                    title="Most of us use 4–6 different apps every day."
+                    description="Here’s how Lifely keeps it simple."
+                />
+                <div className="mt-6 grid gap-6 rounded-3xl bg-white/80 p-6 shadow-sm ring-1 ring-black/5 md:grid-cols-2">
                     <div className="space-y-3">
                         <div className="flex items-center gap-2 text-sm font-semibold text-lifely-dark">
-                            <AlertTriangle className="h-4 w-4 text-lifely-primary" />
+                            <AlertTriangle className="h-4 w-4 text-lifely-indigo" />
                             The chaos today
                         </div>
                         <ul className="space-y-2 text-sm text-slate-700">
                             {problemBullets.map((item) => (
                                 <li key={item} className="flex items-start gap-2">
-                                    <span className="mt-1 h-2 w-2 rounded-full bg-lifely-primary/50" />
+                                    <span className="mt-1 h-2 w-2 rounded-full bg-lifely-indigo/50" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -240,7 +245,7 @@ export default function HomePage() {
                     </div>
                     <div className="space-y-3 rounded-2xl bg-lifely-cream/80 p-5 ring-1 ring-black/5">
                         <div className="flex items-center gap-2 text-sm font-semibold text-lifely-dark">
-                            <Leaf className="h-4 w-4 text-lifely-primary" />
+                            <Leaf className="h-4 w-4 text-lifely-indigo" />
                             What Lifely does instead
                         </div>
                         <ul className="space-y-2 text-sm text-slate-700">
@@ -252,6 +257,36 @@ export default function HomePage() {
                             ))}
                         </ul>
                     </div>
+                </div>
+            </section>
+
+            <section className="mx-auto max-w-6xl space-y-8 px-4 pb-16 sm:pb-20">
+                <SectionHeader
+                    eyebrow="Why Lifely"
+                    title="What makes Lifely different?"
+                    description="A calm, offline-first Life OS that you can set up and use in seconds."
+                />
+                <div className="grid gap-4 md:grid-cols-2">
+                    {[
+                        "100% offline-first",
+                        "Designed to be used in seconds, not minutes",
+                        "Simple enough to use every day",
+                        "One unified daily view — no jumping between screens",
+                        "Minimal, calm aesthetic (no busy dashboards)",
+                    ].map((point) => (
+                        <div
+                            key={point}
+                            className="flex items-start gap-3 rounded-2xl bg-white/85 p-4 text-sm text-slate-700 shadow-sm ring-1 ring-black/5"
+                        >
+                            <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-lifely-indigo/10 text-lifely-indigo">
+                                <Check className="h-3.5 w-3.5" />
+                            </span>
+                            <span>{point}</span>
+                        </div>
+                    ))}
+                </div>
+                <div className="rounded-2xl bg-lifely-cream/80 p-4 text-sm text-slate-700 shadow-sm ring-1 ring-black/5">
+                    Lifely is not another complex productivity platform. It’s the simplest place to organize your day.
                 </div>
             </section>
 
@@ -282,6 +317,35 @@ export default function HomePage() {
                     {features.map((feature) => (
                         <FeatureCard key={feature.title} {...feature} />
                     ))}
+                </div>
+
+                <div className="rounded-2xl bg-white/80 p-5 shadow-sm ring-1 ring-black/5">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p className="text-sm font-semibold text-lifely-dark">Who is Lifely for?</p>
+                            <p className="text-xs text-slate-600">
+                                A calm alternative to heavy productivity tools.
+                            </p>
+                        </div>
+                        <div className="grid gap-2 text-sm text-slate-700 md:grid-cols-2">
+                            <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                Students who want a clear daily routine
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                Creators juggling content + life
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                Busy professionals overwhelmed by too many apps
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <span className="h-2 w-2 rounded-full bg-lifely-indigo" />
+                                Anyone who wants a calm alternative to heavy tools
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
